@@ -13,13 +13,17 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
+            $table->string('nomeEvento');
+            $table->text('sobre');
+            $table->dateTime('data');
+            $table->string('local');
+            $table->decimal('precoIngresso', 8,2);
+            $table->string('imagem')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
         Schema::dropIfExists('eventos');
